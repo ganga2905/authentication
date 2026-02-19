@@ -12,3 +12,25 @@ export const create=async(req,res)=>{
     }
 
 }
+ export const createVarify=async(req,res)=>{
+    try{
+           const{email,password}=req.body;
+
+           const userExist= await Emp.findOne({email})
+           if(userExist){
+            if(userExist.password===password){
+                res.json('success')
+            }
+            else{
+                res.json('the password incotrrect')
+            }
+           }
+
+
+    }
+    catch(err){
+          res.status(500).json({message:err.message})
+
+    }
+
+}
