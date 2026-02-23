@@ -22,12 +22,12 @@ mongoose.connect(MONGOURL)
     console.log("mongoDb conncted");
     
 app.listen(PORT,()=>{
-    console.log(`server conncted${PORT}`);
+    console.log(`server conncted ${PORT}`);
     
 })
 
 })
 .catch((err)=>{
-    console.log(err.meassage);
+    console.log(err.message);
     
 })

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -8,11 +7,15 @@ const Login = () => {
   const[password,setPassword]=useState('')
   const navigate=useNavigate()
 
-  const handleSubmit=(e)=>{
+  const handleSubmit= (e)=>{
     e.preventDefault();
-    axios.post('http://localhost:5000/api/login',{email,password})
+    if(!email||!password){
+      alert('all fills required')
+      return;
+    }
+   axios.post('http://localhost:5000/api/login',{email,password})
     .then((res)=>{
-      console.log(res);
+      console.log(res.data);
       if(res.data==="success"){
               navigate('/home')
       }
@@ -35,7 +38,7 @@ const Login = () => {
             placeholder=' Enter password'
              value={password}
           onChange={(e)=>setPassword(e.target.value)}/><br/><br/>
-          
+          <button type='submit'>submit</button>
         </form>
 
       </div>

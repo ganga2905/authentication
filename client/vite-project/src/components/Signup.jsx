@@ -10,13 +10,13 @@ const Signup = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        axios.post('http://localhost:5000/api/register',{name,email,password})
+       axios.post("http://localhost:5000/api/register",{name,email,password})
         .then(res=>{
           console.log(res);
           navigate('/login')
           
         })
-        .catch(err=>console.log(err.meassage)
+        .catch(err=>console.log(err.message)
         )
 
     }
