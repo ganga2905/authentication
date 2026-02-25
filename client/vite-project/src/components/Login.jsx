@@ -16,10 +16,9 @@ const Login = () => {
    axios.post('http://localhost:5000/api/login',{email,password})
     .then((res)=>{
       console.log(res.data);
-      if(res.data==="success"){
-              navigate('/home')
-      }
-
+    if(res.data.status === "success"){
+    navigate('/home')
+}
     })
     .catch(err=>console.log(err.message)
     )
